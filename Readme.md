@@ -19,4 +19,5 @@ npm run test
 ## Credits
 
 Thanks to [Travis Fischer](transitive-bullshit) for creating an awesome [unofficial ChatGPT Node.js client](https://www.npmjs.com/package/chatgpt)!
+
 Thanks to [GLTR](https://github.com/HendrikStrobelt/detecting-fake-text) for creating an awesome Giant Language Model)!
