@@ -1,6 +1,6 @@
 {
-  "name": "@wuranium/check4ai",
-  "version": "0.0.2",
+  "name": "check4ai",
+  "version": "0.0.1-beta",
   "description": "A tool that can detect ai content",
   "main": "lib/check4ai.js",
   "repository": "wuranium/check4ai",
