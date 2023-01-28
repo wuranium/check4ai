@@ -20,7 +20,7 @@ npm install check4ai
 
 ## Usage
 
-If you have to use plagiarism detector, it is default used by check4ai, you have to get ```G_API_KEY```. Then you have to add an ```.env``` file in your project root. So that you can add following to:
+If you have to use plagiarism detector, it is default used by check4ai, you have to get ```G_API_KEY```. Then you have to add an ```.env``` file in your project root. So that you can add following:
 
 ```bash
 G_API_KEY=<YOUR-API-KEY-FROM-GOOGLE-CONSOLE>
@@ -44,10 +44,36 @@ const result = check4ai.checkText({text: targetText})
 console.log(result)
 ```
 
-Or if you want to detect something with specific detector, you can pick particular detectors in check4ai.detectors list
+Then the expected result should be as follows:
+
+```json
+{
+  "author": "AI",
+  "percent": 100,
+  "detailedResults": [
+    {
+      "detectorName": "GLTR Detector",
+      "detectorCode": "GLTR_DETECTOR",
+      "author": "AI",
+      "score": 60,
+      "details": {object}
+    },
+    {
+      "detectorName": "Plagiarism Detector",
+      "detectorCode": "PLAGIARISM_DETECTOR",
+      "author": "AI",
+      "score": 14.0625,
+      "details": {object}
+      }
+    }
+  ]
+}
+```
+
+If you want to detect something with specific detector, you can pick particular detectors in check4ai.detectors list
 
 ```javascript
-const detectors = require("check4ai")()
+const { getDetector } = require("check4ai")()
 const targetText = `In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English.\n' +
     'The scientist named the population, after their distinctive horn, Ovid\'s Unicorn. These four-horned, silver-white unicorns were previously unknown to science.\n' +
     'Now, after almost two centuries, the mystery of what sparked this odd phenomenon is finally solved.\n' +
@@ -58,7 +84,7 @@ const targetText = `In a shocking finding, scientist discovered a herd of unicor
     'Dr. Pérez believes that the unicorns may have originated in Argentina, where the animals were believed to be descendants of a lost race of people who lived there before the arrival of humans in those parts of South America.\n' +
     'While their origins are still unclear, some believe that perhaps the creatures were created when a human and a unicorn met each other in a time before human civilization. According to Pérez, "In South America, such incidents seem to be quite common."\n' 
     'However, Pérez also pointed out that it is likely that the only way of knowing for sure if unicorns are indeed the descendants of a lost alien race is through DNA. "But they seem to be able to communicate in English quite well, which I believe is a sign of evolution, or at least a change in social organization," said the scientist.`
-const result = check4ai.checkText({text: targetText})
+const result = check4ai.detect({text: targetText, ...{options}})
 console.log(result)
 ```
 
