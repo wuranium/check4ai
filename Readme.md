@@ -65,7 +65,8 @@ Then the expected result should be as follows:
       "score": 14.0625,
       "details": {object}
       }
-    }
+    },
+    ...
   ]
 }
 ```
