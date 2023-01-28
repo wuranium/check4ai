@@ -1,12 +1,12 @@
 {
   "name": "check4ai",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "A tool that can detect ai content",
   "main": "lib/check4ai.js",
   "repository": "wuranium/check4ai",
   "homepage": "http://check4ai.com/",
   "scripts": {
-    "test": "mocha --timeout 10000"
+    "test": "mocha --timeout 10000 --recursive"
   },
   "keywords": [
     "check",

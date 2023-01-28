@@ -24,7 +24,7 @@ describe('checkers.plagiarism.detector()', function(){
 
     it('should be able to detect text from an "AI"', async function(){
 
-        this.timeout(0);
+        this.timeout(20000);
 
         const result = await plagiarismDetector.detect({text: AI_TEXT});
 
@@ -35,7 +35,7 @@ describe('checkers.plagiarism.detector()', function(){
 
     it('should be able to detect text from an "HUMAN"', async function(){
 
-        this.timeout(0);
+        this.timeout(20000);
 
         const result = await plagiarismDetector.detect({text: HUMAN_TEXT});
 

@@ -4,7 +4,7 @@ const {expect, assert} = chai;
 const should = chai.should();
 const dotenv = require('dotenv');
 
-const gtlrDetector = require('../../lib/detectors/gtlr.detector');
+const gltrDetector = require('../../lib/detectors/gltr.detector');
 const CONSTANT = require('../../lib/util/constant');
 
 const AI_TEXT_1 = 'In a shocking finding, scientist discovered a herd of unicorns living in a remote, previously unexplored valley, in the Andes Mountains. Even more surprising to the researchers was the fact that the unicorns spoke perfect English.\n' +
@@ -28,24 +28,24 @@ const HUMAN_TEXT = 'LinkedIn Sales Navigator taps into the power of LinkedIn\'s 
     'and much more.\n' +
     'Interested in Sales Navigator? Request a demo today.';
 
-describe('checkers.gtlr.detector()', function () {
+describe('checkers.gltr.detector()', function () {
 
     dotenv.config();
 
     it('should be an object', function () {
-        expect(gtlrDetector).to.be.a('Object', 'Detector should be an object.');
+        expect(gltrDetector).to.be.a('Object', 'Detector should be an object.');
     });
 
-    it('should have a name "GTLR Detector" ', function () {
-        gtlrDetector.should.have.property('name', 'GTLR Detector', 'Value of name should be "GTLR Detector"');
+    it('should have a name "GLTR Detector" ', function () {
+        gltrDetector.should.have.property('name', 'GLTR Detector', 'Value of name should be "GLTR Detector"');
     });
 
     it('should be able to detect text from an "AI"', async function () {
 
-        this.timeout(0);
+        this.timeout(20000);
 
-        const result1 = await gtlrDetector.detect({text: AI_TEXT_1});
-        const result2 = await gtlrDetector.detect({text: AI_TEXT_2});
+        const result1 = await gltrDetector.detect({text: AI_TEXT_1});
+        const result2 = await gltrDetector.detect({text: AI_TEXT_2});
 
         console.log(result1);
         console.log(result2);
@@ -53,16 +53,13 @@ describe('checkers.gtlr.detector()', function () {
         result1.should.have.property('author', CONSTANT.AUTHOR_TYPE.AI, 'Author for AI_TEXT_1 should be "AI"');
         result2.should.have.property('author', CONSTANT.AUTHOR_TYPE.AI, 'Author for AI_TEXT_2 should be "AI"');
 
-        console.log(result1);
-        console.log(result2);
-
     });
 
     it('should be able to detect text from an "HUMAN"', async function () {
 
-        this.timeout(0);
+        this.timeout(20000);
 
-        const result = await gtlrDetector.detect({text: HUMAN_TEXT});
+        const result = await gltrDetector.detect({text: HUMAN_TEXT});
 
         result.should.have.property('author', CONSTANT.AUTHOR_TYPE.HUMAN, 'Author should be "HUMAN"');
         console.log(result);
